@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables for Themes */
+:root {
+  --color-neon-cyan: #00ffcc;
+  --color-neon-pink: #ff0080;
+  --color-neon-purple: #7c3aed;
+  --color-dark-bg: #0a0a0f;
+  --color-dark-surface: rgba(20, 20, 30, 0.8);
+  --color-text-dim: rgba(255, 255, 255, 0.6);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent zoom on mobile for audio apps */
+  touch-action: manipulation;
+  /* Prevent text selection on UI elements */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-dark-bg);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Enable text selection for form inputs */
+input, textarea, select {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* Loading screen styles */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0f1f 100%);
+}
+
+/* Neon glow animations */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px var(--color-neon-cyan),
+                 0 0 10px var(--color-neon-cyan),
+                 0 0 15px var(--color-neon-cyan);
+  }
+  50% {
+    text-shadow: 0 0 2px var(--color-neon-cyan),
+                 0 0 5px var(--color-neon-cyan),
+                 0 0 8px var(--color-neon-cyan);
+  }
+}
+
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon-cyan);
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Audio context interaction styles */
+.audio-context-prompt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Range input customization */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--color-neon-cyan);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+}
+
+input[type="range"]::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: var(--color-neon-cyan);
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-neon-cyan);
+  outline-offset: 2px;
+}
+
+/* Disable button highlighting on mobile */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Performance optimizations */
+.sequencer-grid {
+  will-change: transform;
+}
+
+.scope-canvas {
+  image-rendering: pixelated;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

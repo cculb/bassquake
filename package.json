@@ -1,0 +1,120 @@
+{
+  "name": "bassquake",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "BASSQUAKE - Seismic Dubstep Sequencer. A modern, web-based music production tool that combines a drum sequencer, dubstep bass synthesizer, and motion-controlled effects.",
+  "keywords": [
+    "music",
+    "sequencer",
+    "dubstep",
+    "synthesizer",
+    "pwa",
+    "web-audio",
+    "motion-control",
+    "music-production"
+  ],
+  "author": {
+    "name": "Bassquake Team"
+  },
+  "license": "MIT",
+  "homepage": "https://bassquake.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cculb/bassquake.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest --watch",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "pwa:generate-assets": "pwa-assets-generator",
+    "cap:add:ios": "npx cap add ios",
+    "cap:add:android": "npx cap add android",
+    "cap:sync": "npx cap sync",
+    "cap:open:ios": "npx cap open ios",
+    "cap:open:android": "npx cap open android",
+    "build:mobile": "npm run build && npx cap sync",
+    "deploy:pwa": "npm run build && npm run preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tone": "^15.1.22",
+    "react-device-detect": "^2.2.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2",
+    "@capacitor/android": "^6.1.2",
+    "@eslint/js": "^9.11.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "@vite-pwa/assets-generator": "^0.2.6",
+    "@vitejs/plugin-react": "^4.3.3",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc-06d0b89e-20240801",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.2",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^3.2.4",
+    "workbox-build": "^7.3.0",
+    "workbox-window": "^7.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
+  },
+  "pwa": {
+    "name": "BASSQUAKE",
+    "short_name": "Bassquake",
+    "description": "Seismic Dubstep Sequencer - Electronic Music Production",
+    "theme_color": "#00ffcc",
+    "background_color": "#0a0a0f",
+    "display": "standalone",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": "/"
+  },
+  "capacitor": {
+    "appId": "com.bassquake.app",
+    "appName": "Bassquake",
+    "webDir": "dist",
+    "bundledWebRuntime": false
+  }
+}
