@@ -1,0 +1,776 @@
+/* MusicTracker CSS Module - Modern Dark Theme */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a0f1f 100%);
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #00ffcc 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 204, 0.25));
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Surface/Panel Styles */
+.surface {
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+}
+
+.surfaceHover {
+  background: rgba(30, 30, 40, 0.9);
+}
+
+/* Scope Display */
+.scopeSection {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.scopeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: #00ffcc;
+}
+
+.scopeControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.scopeButton {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border: 1px solid #00ffcc;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.scopeButtonActive {
+  background: #00ffcc;
+  color: #0a0a0f;
+}
+
+.scopeButtonInactive {
+  background: rgba(20, 20, 30, 0.8);
+  color: #ffffff;
+}
+
+.scopeCanvas {
+  width: 100%;
+  height: 8rem;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Main Controls */
+.mainControls {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.playButton {
+  position: relative;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  border: none;
+  cursor: pointer;
+}
+
+.playButton:hover {
+  transform: scale(1.05);
+}
+
+.playButtonPlaying {
+  background: linear-gradient(135deg, #ff0080 0%, #7c3aed 100%);
+  color: #0a0a0f;
+  box-shadow:
+    0 0 30px rgba(255, 0, 128, 0.25),
+    0 0 60px rgba(255, 0, 128, 0.125),
+    inset 0 0 30px rgba(255, 0, 128, 0.0625);
+}
+
+.playButtonStopped {
+  background: linear-gradient(135deg, #00ffcc 0%, #7c3aed 100%);
+  color: #0a0a0f;
+  box-shadow:
+    0 0 30px rgba(0, 255, 204, 0.25),
+    0 0 60px rgba(0, 255, 204, 0.125),
+    inset 0 0 30px rgba(0, 255, 204, 0.0625);
+}
+
+.bpmControl {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.controlLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.rangeInput {
+  width: 8rem;
+  accent-color: #00ffcc;
+}
+
+.bpmDisplay {
+  width: 3rem;
+  text-align: center;
+  font-family: "Monaco", "Menlo", monospace;
+  font-weight: bold;
+}
+
+.clearButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid #ff0080;
+  color: #ff0080;
+  box-shadow:
+    0 0 10px rgba(255, 0, 128, 0.25),
+    0 0 20px rgba(255, 0, 128, 0.125),
+    inset 0 0 10px rgba(255, 0, 128, 0.0625);
+  cursor: pointer;
+}
+
+.clearButton:hover {
+  transform: scale(1.05);
+}
+
+.motionButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  border: 1px solid #7c3aed;
+  cursor: pointer;
+}
+
+.motionButton:hover {
+  transform: scale(1.05);
+}
+
+.motionButtonOn {
+  background: linear-gradient(135deg, #7c3aed 0%, #ff0080 100%);
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.25),
+    0 0 40px rgba(124, 58, 237, 0.125),
+    inset 0 0 20px rgba(124, 58, 237, 0.0625);
+}
+
+.motionButtonOff {
+  background: rgba(20, 20, 30, 0.8);
+  box-shadow:
+    0 0 10px rgba(124, 58, 237, 0.25),
+    0 0 20px rgba(124, 58, 237, 0.125),
+    inset 0 0 10px rgba(124, 58, 237, 0.0625);
+}
+
+/* Beat Generator Controls */
+.beatControls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.styleControl {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.select {
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  outline: none;
+}
+
+.selectOption {
+  background: #0a0a0f;
+}
+
+.generateButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.generateButton:hover {
+  transform: scale(1.05);
+}
+
+.generateBeatButton {
+  background: linear-gradient(135deg, #00ffcc 0%, #7c3aed 100%);
+  color: #0a0a0f;
+  box-shadow:
+    0 0 20px rgba(0, 255, 204, 0.25),
+    0 0 40px rgba(0, 255, 204, 0.125),
+    inset 0 0 20px rgba(0, 255, 204, 0.0625);
+}
+
+.generateBassButton {
+  background: linear-gradient(135deg, #7c3aed 0%, #ff0080 100%);
+  color: #0a0a0f;
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.25),
+    0 0 40px rgba(124, 58, 237, 0.125),
+    inset 0 0 20px rgba(124, 58, 237, 0.0625);
+}
+
+.emojiIcon {
+  font-size: 1rem;
+}
+
+/* Motion Visualizer */
+.motionVisualizer {
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.motionLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.motionBarContainer {
+  width: 20rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(20, 20, 30, 0.8);
+  box-shadow: 0 0 5px rgba(124, 58, 237, 0.25);
+}
+
+.motionBar {
+  height: 100%;
+  transition: all 0.1s ease;
+  background: linear-gradient(90deg, #7c3aed 0%, #ff0080 100%);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.25);
+}
+
+/* Motion bar width will be set dynamically via inline style due to state dependency */
+
+/* Sequencer Section */
+.sequencerSection {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.sequencerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.clearDrumsButton {
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid #ff0080;
+  color: #ff0080;
+  cursor: pointer;
+}
+
+/* Beat Indicators */
+.beatIndicators {
+  display: grid;
+  grid-template-columns: 0fr repeat(16, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.beatNumber {
+  text-align: center;
+}
+
+.beatNumberText {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.beatDot {
+  font-size: 0.75rem;
+}
+
+.beatDotMain {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.beatDotSub {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0.3;
+}
+
+/* Track Rows */
+.trackRow {
+  display: grid;
+  grid-template-columns: 10rem repeat(16, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.trackLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.trackVolumeSlider {
+  width: 4rem;
+  height: 0.5rem;
+  accent-color: #00ffcc;
+}
+
+.stepButton {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.stepButton:hover {
+  transform: scale(1.1);
+}
+
+.stepButtonActive {
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.25);
+}
+
+.stepButtonActiveCurrent {
+  background: linear-gradient(135deg, #ff0080 0%, #7c3aed 100%);
+  border: 1px solid #ff0080;
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.25);
+}
+
+.stepButtonActiveNormal {
+  background: linear-gradient(135deg, #00ffcc 0%, #7c3aed 100%);
+  border: 1px solid #00ffcc;
+}
+
+.stepButtonInactiveCurrent {
+  background: rgba(30, 30, 40, 0.9);
+  border: 1px solid #ff0080;
+}
+
+.stepButtonInactiveNormal {
+  background: rgba(20, 20, 30, 0.8);
+}
+
+.stepButtonBorder {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stepButtonBorderTransparent {
+  border: 1px solid transparent;
+}
+
+/* Bass Section */
+.bassSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.bassHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.bassSectionTitle {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: #7c3aed;
+}
+
+.bassControls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.wobbleControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wobbleLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.wobbleSelect {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  outline: none;
+}
+
+.wobbleSlider {
+  width: 4rem;
+  height: 0.5rem;
+  accent-color: #7c3aed;
+}
+
+.clearBassButton {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid #ff0080;
+  color: #ff0080;
+  cursor: pointer;
+}
+
+.bassTrackRow {
+  display: grid;
+  grid-template-columns: 10rem repeat(16, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.bassTrackLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.bassVolumeSlider {
+  width: 4rem;
+  height: 0.5rem;
+  accent-color: #7c3aed;
+}
+
+.bassStepButton {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  transform: scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-family: "Monaco", "Menlo", monospace;
+  cursor: pointer;
+}
+
+.bassStepButton:hover {
+  transform: scale(1.1);
+}
+
+.bassStepButtonActive {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.25);
+}
+
+.bassStepButtonActiveCurrent {
+  background: linear-gradient(135deg, #7c3aed 0%, #ff0080 100%);
+  border: 1px solid #7c3aed;
+  color: #0a0a0f;
+}
+
+.bassStepButtonActiveNormal {
+  background: linear-gradient(135deg, #7c3aed 0%, #00ffcc 100%);
+  border: 1px solid #7c3aed;
+  color: #0a0a0f;
+}
+
+.bassStepButtonInactiveCurrent {
+  background: rgba(30, 30, 40, 0.9);
+  border: 1px solid #7c3aed;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bassStepButtonInactiveNormal {
+  background: rgba(20, 20, 30, 0.8);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bassInstructions {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Arpeggiator Controls */
+.arpeggiatorSection {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.arpToggleButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  border: 1px solid #00ffcc;
+  cursor: pointer;
+}
+
+.arpToggleButtonOn {
+  background: linear-gradient(135deg, #00ffcc 0%, #7c3aed 100%);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.25);
+}
+
+.arpToggleButtonOff {
+  background: rgba(20, 20, 30, 0.8);
+}
+
+.arpSelect {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  outline: none;
+}
+
+/* Keyboard Section */
+.keyboardSection {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.keyboardTitle {
+  font-size: 0.875rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+.keyboardContainer {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.keyContainer {
+  position: relative;
+}
+
+.keyContainerWhite {
+  width: 45px;
+  margin-left: 0;
+}
+
+.keyContainerBlack {
+  width: 0;
+}
+
+.pianoKey {
+  transition: all 0.2s ease;
+  transform: scale(1);
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.pianoKey:hover {
+  transform: scale(1.05);
+}
+
+.pianoKeyWhite {
+  width: 45px;
+  height: 150px;
+  background: linear-gradient(180deg, #fafafa 0%, #e0e0e0 100%);
+  border: 1px solid #999;
+  position: relative;
+  z-index: 1;
+}
+
+.pianoKeyBlack {
+  width: 35px;
+  height: 100px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 1px solid #000;
+  position: absolute;
+  z-index: 10;
+}
+
+.pianoKeyActive {
+  background: linear-gradient(180deg, #00ffcc 0%, #7c3aed 100%);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.25);
+}
+
+.keyLabel {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.keyLabelKey {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.keyLabelNote {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.keyLabelActiveText {
+  color: #0a0a0f;
+}
+
+.keyLabelWhiteText {
+  color: #000;
+}
+
+.keyLabelBlackText {
+  color: #fff;
+}
+
+.keyLabelWhiteNote {
+  color: #666;
+}
+
+.keyLabelBlackNote {
+  color: #999;
+}
+
+/* Hidden Elements */
+.hiddenVideo {
+  display: none;
+}
+
+.hiddenCanvas {
+  display: none;
+}
+
+/* Black Key Positioning */
+.blackKeyW {
+  margin-left: -15px;
+}
+.blackKeyE {
+  margin-left: 15px;
+}
+.blackKeyT {
+  margin-left: -15px;
+}
+.blackKeyY {
+  margin-left: 0;
+}
+.blackKeyU {
+  margin-left: 15px;
+}
+.blackKeyO {
+  margin-left: -15px;
+}
+.blackKeyP {
+  margin-left: 15px;
+}
