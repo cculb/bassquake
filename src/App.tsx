@@ -1,7 +1,7 @@
-import { Suspense } from 'react'
-import MusicTracker from './components/MusicTracker'
-import LoadingSpinner from './components/LoadingSpinner'
-import ErrorBoundary from './components/ErrorBoundary'
+import { Suspense } from 'react';
+import MusicTracker from './components/MusicTracker';
+import LoadingSpinner from './components/LoadingSpinner';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <MusicTracker />
       </Suspense>
     </ErrorBoundary>
-  )
+  );
 }
 
-export default App
+export default App;

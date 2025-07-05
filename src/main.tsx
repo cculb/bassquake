@@ -1,16 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
 
 // Register SW for PWA
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then(registration => {
+        // eslint-disable-next-line no-console
         console.log('SW registered: ', registration);
       })
-      .catch((registrationError) => {
+      .catch(registrationError => {
+        // eslint-disable-next-line no-console
         console.log('SW registration failed: ', registrationError);
       });
   });
@@ -19,5 +22,5 @@ if ('serviceWorker' in navigator) {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);

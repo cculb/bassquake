@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - '5173:5173'
     volumes:
       - .:/app
       - /app/node_modules
@@ -54,7 +54,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4173:4173"
+      - '4173:4173'
     volumes:
       - build-artifacts:/app/dist
     environment:

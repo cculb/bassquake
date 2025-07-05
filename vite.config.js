@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -74,6 +73,9 @@ export default defineConfig({
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
               },
+              cacheKeyWillBeUsed: async ({ request }) => {
+                return `${request.url}?v=1`;
+              },
             },
           },
           {
@@ -108,6 +110,7 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true, // Allow external connections
+    https: false, // Set to true for HTTPS in development
   },
   preview: {
     port: 4173,

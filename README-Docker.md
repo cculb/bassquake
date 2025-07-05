@@ -1,10 +1,12 @@
 # Docker Setup for Bassquake
 
-This document explains how to use Docker for consistent development and CI environments with Bassquake.
+This document explains how to use Docker for consistent development and CI
+environments with Bassquake.
 
 ## Quick Start
 
 ### Prerequisites
+
 - Docker Desktop installed and running
 - Docker Compose v2+
 
@@ -26,12 +28,14 @@ The development server will be available at `http://localhost:5173`
 ## Docker Images
 
 ### Development Image (`Dockerfile`)
+
 - Based on Node.js 20 Alpine
 - Includes all development dependencies
 - Optimized for live development with hot reloading
 - Includes Chrome/Puppeteer for testing
 
 ### CI/CD Image (`Dockerfile.ci`)
+
 - Multi-stage build for optimized CI/CD pipelines
 - Separate stages for dependencies, build, test, and production
 - Production stage uses Nginx for serving static files
@@ -40,6 +44,7 @@ The development server will be available at `http://localhost:5173`
 ## Available Commands
 
 ### Using npm scripts:
+
 ```bash
 npm run docker:dev      # Start development environment
 npm run docker:build    # Build development container
@@ -49,6 +54,7 @@ npm run docker:cleanup  # Clean up Docker resources
 ```
 
 ### Using the helper script:
+
 ```bash
 ./scripts/docker-dev.sh <command>
 
@@ -71,24 +77,32 @@ Commands:
 ## Docker Compose Services
 
 ### bassquake-dev
+
 Development environment with hot reloading
+
 - Port: 5173
 - Volume mounts for live code changes
 - Node.js development mode
 
 ### bassquake-test
+
 Testing environment
+
 - Runs test suite with coverage
 - Isolated environment for consistent testing
 - Includes Chrome for browser-based tests
 
 ### bassquake-build
+
 Production build environment
+
 - Builds optimized production bundle
 - Outputs to shared volume for preview
 
 ### bassquake-preview
+
 Production preview server
+
 - Port: 4173
 - Serves production build
 - Simulates production environment
@@ -103,6 +117,7 @@ The project includes a dev container configuration for VS Code:
 4. VS Code will build and start the dev container automatically
 
 The dev container includes:
+
 - Pre-configured VS Code extensions
 - Automatic port forwarding
 - Docker-in-Docker support
@@ -111,18 +126,21 @@ The dev container includes:
 ## Environment Variables
 
 ### Development
+
 ```bash
 NODE_ENV=development
 VITE_APP_ENV=development
 ```
 
 ### Testing
+
 ```bash
 NODE_ENV=test
 CI=true
 ```
 
 ### Production
+
 ```bash
 NODE_ENV=production
 ```
@@ -140,14 +158,16 @@ docker exec <container_name> npm run healthcheck
 ```
 
 Health checks monitor:
+
 - HTTP server responsiveness
-- Node.js process status  
+- Node.js process status
 - Memory usage
 - Application-specific metrics
 
 ## CI/CD Integration
 
 ### GitHub Actions
+
 The project includes a complete CI/CD pipeline (`.github/workflows/ci.yml`):
 
 1. **Test Stage**: Runs linting, type checking, and tests
@@ -156,6 +176,7 @@ The project includes a complete CI/CD pipeline (`.github/workflows/ci.yml`):
 4. **Deploy Stage**: Automated deployment to staging/production
 
 ### Local CI Testing
+
 ```bash
 # Run the same checks as CI locally
 ./scripts/docker-dev.sh ci
@@ -164,6 +185,7 @@ The project includes a complete CI/CD pipeline (`.github/workflows/ci.yml`):
 ## Production Deployment
 
 ### Using Docker
+
 ```bash
 # Build production image
 docker build -f Dockerfile.ci -t bassquake:production .
@@ -173,6 +195,7 @@ docker run -p 80:80 bassquake:production
 ```
 
 ### Using Docker Compose
+
 ```bash
 # Build and start production preview
 docker-compose up bassquake-preview
@@ -183,34 +206,38 @@ docker-compose up bassquake-preview
 ### Common Issues
 
 1. **Port already in use**
+
    ```bash
    # Stop all containers
    docker-compose down
-   
+
    # Check for running containers
    docker ps
    ```
 
 2. **Container won't start**
+
    ```bash
    # Check logs
    docker-compose logs bassquake-dev
-   
+
    # Rebuild container
    docker-compose build --no-cache bassquake-dev
    ```
 
 3. **File permission issues**
+
    ```bash
    # Fix ownership (Linux/macOS)
    sudo chown -R $USER:$USER .
    ```
 
 4. **Out of disk space**
+
    ```bash
    # Clean up Docker resources
    ./scripts/docker-dev.sh cleanup
-   
+
    # Remove all unused containers, networks, images
    docker system prune -a
    ```
@@ -241,6 +268,7 @@ docker-compose up bassquake-preview
 ## Support
 
 For Docker-related issues:
+
 1. Check the troubleshooting section above
 2. Review Docker logs: `docker-compose logs`
 3. Ensure Docker Desktop is running and up-to-date

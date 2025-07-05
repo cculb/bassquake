@@ -16,16 +16,16 @@ const TIMEOUT = parseInt(process.env.HEALTHCHECK_TIMEOUT || '5000');
 const healthChecks = [
   {
     name: 'HTTP Server',
-    check: () => httpHealthCheck(HOST, PORT)
+    check: () => httpHealthCheck(HOST, PORT),
   },
   {
     name: 'Node.js Process',
-    check: () => processHealthCheck()
+    check: () => processHealthCheck(),
   },
   {
     name: 'Memory Usage',
-    check: () => memoryHealthCheck()
-  }
+    check: () => memoryHealthCheck(),
+  },
 ];
 
 /**
@@ -38,10 +38,10 @@ function httpHealthCheck(host, port) {
       port: port,
       path: '/',
       method: 'GET',
-      timeout: TIMEOUT
+      timeout: TIMEOUT,
     };
 
-    const req = http.request(options, (res) => {
+    const req = http.request(options, res => {
       if (res.statusCode >= 200 && res.statusCode < 400) {
         resolve(`HTTP server responding with status ${res.statusCode}`);
       } else {
@@ -49,7 +49,7 @@ function httpHealthCheck(host, port) {
       }
     });
 
-    req.on('error', (err) => {
+    req.on('error', err => {
       reject(`HTTP request failed: ${err.message}`);
     });
 
@@ -86,10 +86,10 @@ function memoryHealthCheck() {
       const usage = process.memoryUsage();
       const usedMB = Math.round(usage.heapUsed / 1024 / 1024);
       const totalMB = Math.round(usage.heapTotal / 1024 / 1024);
-      
+
       // Alert if memory usage is above 80%
       const usagePercent = (usedMB / totalMB) * 100;
-      
+
       if (usagePercent > 80) {
         reject(`High memory usage: ${usedMB}MB/${totalMB}MB (${usagePercent.toFixed(1)}%)`);
       } else {
@@ -106,7 +106,7 @@ function memoryHealthCheck() {
  */
 async function runHealthChecks() {
   console.log(`🏥 Running health checks for Bassquake (${new Date().toISOString()})`);
-  
+
   let allPassed = true;
   const results = [];
 
@@ -133,12 +133,12 @@ async function runHealthChecks() {
 }
 
 // Handle uncaught errors
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', err => {
   console.error('❌ Uncaught exception during health check:', err.message);
   process.exit(1);
 });
 
-process.on('unhandledRejection', (reason) => {
+process.on('unhandledRejection', reason => {
   console.error('❌ Unhandled rejection during health check:', reason);
   process.exit(1);
 });

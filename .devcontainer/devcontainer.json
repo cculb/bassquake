@@ -3,7 +3,7 @@
   "dockerComposeFile": "../docker-compose.yml",
   "service": "bassquake-dev",
   "workspaceFolder": "/app",
-  
+
   "customizations": {
     "vscode": {
       "extensions": [
