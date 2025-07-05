@@ -23,6 +23,7 @@ jobs:
     #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
     
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
       pull-requests: read
@@ -74,3 +75,10 @@ jobs:
             !contains(github.event.pull_request.title, '[skip-review]') &&
             !contains(github.event.pull_request.title, '[WIP]')
 
+      - name: Save review output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-review-${{ github.event.pull_request.number }}
+          path: review-output.txt
+          
