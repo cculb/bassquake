@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Development environment
+  bassquake-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_APP_ENV=development
+    command: npm run dev -- --host 0.0.0.0
+    networks:
+      - bassquake-network
+
+  # Testing environment
+  bassquake-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=test
+      - CI=true
+    command: npm run test:coverage
+    networks:
+      - bassquake-network
+
+  # Build environment
+  bassquake-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - build-artifacts:/app/dist
+    environment:
+      - NODE_ENV=production
+    command: npm run build
+    networks:
+      - bassquake-network
+
+  # Production preview
+  bassquake-preview:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    volumes:
+      - build-artifacts:/app/dist
+    environment:
+      - NODE_ENV=production
+    command: npm run preview -- --host 0.0.0.0
+    depends_on:
+      - bassquake-build
+    networks:
+      - bassquake-network
+
+volumes:
+  build-artifacts:
+
+networks:
+  bassquake-network:
+    driver: bridge

@@ -194,11 +194,12 @@ const MusicTracker = () => {
 
     if (scopeMode === 'waveform' && analyserRef.current) {
       const waveform = analyserRef.current.getValue();
-      ctx.strokeStyle = colors.primary;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
+      if (waveform && waveform.length > 0) {
+        ctx.strokeStyle = colors.primary;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
 
-      for (let i = 0; i < waveform.length; i++) {
+        for (let i = 0; i < waveform.length; i++) {
         const x = (i / waveform.length) * width;
         const y = ((waveform[i] + 1) / 2) * height;
 
@@ -209,7 +210,8 @@ const MusicTracker = () => {
         }
       }
 
-      ctx.stroke();
+        ctx.stroke();
+      }
     } else if (scopeMode === 'spectrum' && waveformRef.current) {
       const fft = waveformRef.current.getValue();
       const barWidth = width / fft.length;

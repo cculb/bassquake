@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Test Runner Validation > Snapshot Testing Support > can create and match snapshots 1`] = `
+{
+  "features": [
+    "sequencer",
+    "synthesizer",
+    "motion-control",
+  ],
+  "name": "Bassquake",
+  "version": "1.0.0",
+}
+`;

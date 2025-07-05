@@ -21,8 +21,9 @@ describe('App', () => {
     // Main play/stop button
     expect(screen.getByRole('button', { name: /play/i })).toBeInTheDocument()
     
-    // Clear button
-    expect(screen.getByRole('button', { name: /clear/i })).toBeInTheDocument()
+    // Multiple clear buttons exist, so check for all
+    const clearButtons = screen.getAllByRole('button', { name: /clear/i })
+    expect(clearButtons.length).toBeGreaterThan(0)
     
     // Motion control button
     expect(screen.getByRole('button', { name: /motion/i })).toBeInTheDocument()

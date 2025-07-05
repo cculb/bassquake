@@ -12,9 +12,11 @@ const ThrowError = ({ shouldThrow }: { shouldThrow: boolean }) => {
 }
 
 describe('ErrorBoundary', () => {
-  // Mock console.error to avoid noise in test output
-  const originalConsoleError = console.error
+  let originalConsoleError: typeof console.error
+
   beforeEach(() => {
+    // Mock console.error to avoid noise in test output
+    originalConsoleError = console.error
     console.error = vi.fn()
   })
   
