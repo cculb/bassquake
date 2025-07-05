@@ -4,7 +4,9 @@
 
 ![Bassquake Logo](public/logo.png)
 
-**A modern, web-based music production tool that combines a drum sequencer, dubstep bass synthesizer, and motion-controlled effects into a futuristic interface.**
+**A modern, web-based music production tool that combines a drum sequencer,
+dubstep bass synthesizer, and motion-controlled effects into a futuristic
+interface.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.1.0-blue.svg)](https://reactjs.org/)
@@ -12,13 +14,15 @@
 [![Vite](https://img.shields.io/badge/Vite-7.0.2-green.svg)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.11-blue.svg)](https://tailwindcss.com/)
 
-[🚀 Live Demo](https://bassquake.app) | [📱 PWA Install](https://bassquake.app) | [🎮 Try Now](https://bassquake.app)
+[🚀 Live Demo](https://bassquake.app) | [📱 PWA Install](https://bassquake.app)
+| [🎮 Try Now](https://bassquake.app)
 
 </div>
 
 ## ✨ Features
 
 ### 🥁 **Drum Sequencer**
+
 - 16-step sequencer with 3 tracks (kick, snare, hi-hat)
 - Visual beat indicators showing quarter notes (1-4)
 - Real-time playback visualization with current step highlighting
@@ -26,6 +30,7 @@
 - Clear drums button for quick pattern reset
 
 ### 🔊 **Dubstep Bass Sequencer**
+
 - Dedicated bass track with sub-bass frequencies
 - 8 bass notes available (C1, D1, E1, G1, A1, C2, D2, E2)
 - Left-click to toggle notes, right-click to cycle through pitches
@@ -37,6 +42,7 @@
 - Clear bass button for pattern management
 
 ### 🎛️ **Beat Generation System**
+
 - 4 hip-hop/electronic styles:
   - **Boom Bap**: Classic 90s hip-hop patterns
   - **Trap**: Modern trap rhythms
@@ -46,6 +52,7 @@
 - Separate bass pattern generator with 5 Bassnectar-inspired templates
 
 ### 🎹 **Synthesizer & Arpeggiator**
+
 - Full piano keyboard (A-L keys for white keys, W-E-T-Y-U-O-P for black keys)
 - Polyphonic synthesizer with professional effects chain
 - **Arpeggiator modes:**
@@ -54,6 +61,7 @@
 - Visual feedback on active keys with neon glow effects
 
 ### 📹 **Motion Control**
+
 - Webcam-based motion detection system
 - Controls synthesizer filter frequency (200Hz - 3200Hz)
 - Visual motion intensity meter
@@ -61,12 +69,14 @@
 - Privacy-focused: all processing happens locally
 
 ### 📊 **Visual Scope Display**
+
 - **Waveform mode**: Real-time audio waveform visualization
 - **Spectrum mode**: FFT frequency analysis with gradient effects
 - Smooth animations with trail effects
 - Cyberpunk aesthetic with neon colors
 
 ### 🎧 **Professional Audio Effects**
+
 - **Drums**: Individual reverb and delay effects per track
 - **Bass**: Distortion, chorus, and LFO-controlled filter
 - **Synth**: Filter, ping-pong delay, and chorus
@@ -123,7 +133,7 @@ Bassquake is built as a PWA and can be installed on mobile devices:
 # Add iOS platform
 npm run cap:add:ios
 
-# Add Android platform  
+# Add Android platform
 npm run cap:add:android
 
 # Build and sync
@@ -140,20 +150,20 @@ npm run cap:open:android
 
 ### Basic Controls
 
-| Action | Control |
-|--------|---------|
-| Play/Stop | Space bar or Play button |
-| BPM Control | Slider (60-200 BPM) |
-| Clear All | Clear button |
-| Motion Control | Toggle webcam on/off |
+| Action         | Control                  |
+| -------------- | ------------------------ |
+| Play/Stop      | Space bar or Play button |
+| BPM Control    | Slider (60-200 BPM)      |
+| Clear All      | Clear button             |
+| Motion Control | Toggle webcam on/off     |
 
 ### Keyboard Controls
 
-| Keys | Function |
-|------|----------|
-| `A-L` | White piano keys (C4-F5) |
-| `W,E,T,Y,U,O,P` | Black piano keys |
-| `Space` | Play/Stop transport |
+| Keys            | Function                 |
+| --------------- | ------------------------ |
+| `A-L`           | White piano keys (C4-F5) |
+| `W,E,T,Y,U,O,P` | Black piano keys         |
+| `Space`         | Play/Stop transport      |
 
 ### Sequencer
 
@@ -189,7 +199,7 @@ npm run test:watch
 
 ### Project Structure
 
-```
+```text
 src/
 ├── components/          # React components
 │   ├── MusicTracker.tsx # Main application component
@@ -205,19 +215,20 @@ src/
 
 ### Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run test` | Run tests |
-| `npm run lint` | Lint code |
-| `npm run format` | Format code with Prettier |
-| `npm run type-check` | Check TypeScript types |
+| Command              | Description               |
+| -------------------- | ------------------------- |
+| `npm run dev`        | Start development server  |
+| `npm run build`      | Build for production      |
+| `npm run preview`    | Preview production build  |
+| `npm run test`       | Run tests                 |
+| `npm run lint`       | Lint code                 |
+| `npm run format`     | Format code with Prettier |
+| `npm run type-check` | Check TypeScript types    |
 
 ### Code Quality
 
 The project uses:
+
 - **ESLint** for code linting
 - **Prettier** for code formatting
 - **TypeScript** for type safety
@@ -241,14 +252,15 @@ The project uses:
 
 ## 🌐 Browser Support
 
-| Browser | Version | Status |
-|---------|---------|--------|
-| Chrome | 111+ | ✅ Full Support |
-| Safari | 16.4+ | ✅ Full Support |
-| Firefox | 128+ | ✅ Full Support |
-| Edge | 111+ | ✅ Full Support |
+| Browser | Version | Status          |
+| ------- | ------- | --------------- |
+| Chrome  | 111+    | ✅ Full Support |
+| Safari  | 16.4+   | ✅ Full Support |
+| Firefox | 128+    | ✅ Full Support |
+| Edge    | 111+    | ✅ Full Support |
 
-**Note**: Older browsers may have limited functionality, especially for Web Audio features.
+**Note**: Older browsers may have limited functionality, especially for Web
+Audio features.
 
 ## 📊 Performance
 
@@ -290,7 +302,7 @@ const config: CapacitorConfig = {
   appId: 'com.bassquake.app',
   appName: 'Bassquake',
   webDir: 'dist',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
 };
 
 export default config;
@@ -298,7 +310,8 @@ export default config;
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md)
+for details.
 
 ### Development Workflow
 
@@ -312,7 +325,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
 
 ## 🙏 Acknowledgments
 
@@ -333,17 +347,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🚀 Roadmap
 
 ### Version 1.1.0
+
 - [ ] MIDI export capability
 - [ ] Additional synthesizer presets
 - [ ] Pattern save/load functionality
 
 ### Version 1.2.0
+
 - [ ] More visual effects modes
 - [ ] Recording capabilities
 - [ ] Additional drum kits
 - [ ] Cloud sync for patterns
 
 ### Version 2.0.0
+
 - [ ] Collaboration features
 - [ ] Advanced sequencing features
 - [ ] Plugin system
@@ -353,8 +370,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with 💜 by the Bassquake Team**
+## Made with 💜 by the Bassquake Team
 
-[Website](https://bassquake.app) • [GitHub](https://github.com/cculb/bassquake) • [Twitter](https://twitter.com/bassquakeapp)
+[Website](https://bassquake.app) • [GitHub](https://github.com/cculb/bassquake)
+• [Twitter](https://twitter.com/bassquakeapp)
 
 </div>
